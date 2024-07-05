@@ -1,16 +1,16 @@
 pipeline {
     agent {
-        label 'My Agent'
+        label any
     }
     environment {
-        MVN = tool 'Maven'
+        MVN = tool name: 'Maven', type: 'maven'
     }
     stages {
 	stage('Install pre requirements') {
             steps {
                 //  Checkout the code from the GitLab repository
                 sh "sudo apt update"
-		sh "sudo apt install git maven docker.io"
+		sh "sudo apt install git maven docker.io -y"
             }
 	}
         stage('Fetch Files') {
