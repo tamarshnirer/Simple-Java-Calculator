@@ -12,6 +12,7 @@ pipeline {
                 sh "sudo apt update"
 		sh "sudo apt install git maven docker.io"
             }
+	}
         stage('Fetch Files') {
             steps {
                 //  Checkout the code from the GitLab repository
