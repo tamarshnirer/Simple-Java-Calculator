@@ -1,9 +1,5 @@
 pipeline {
     agent any
-	
-    environment {
-        MVN_HOME = tool name: 'Maven', type: 'maven'
-    }
     
     stages {
         stage('Install pre requirements') {
@@ -24,7 +20,7 @@ pipeline {
             agent any  // Ensure an agent is defined within each stage that requires it
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh "${MVN_HOME}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Maven -Dsonar.projectName='Maven'"
+                    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=Maven -Dsonar.projectName='Maven'"
                 }
             }
         }
