@@ -1,7 +1,6 @@
 pipeline {
-    agent {
-        label any
-    }
+    agent any
+	
     environment {
         MVN = tool name: 'Maven', type: 'maven'
     }
